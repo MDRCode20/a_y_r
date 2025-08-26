@@ -1,0 +1,33 @@
+<header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/10 border-b border-white/20 shadow-lg">
+  <nav class="container mx-auto flex items-center justify-between px-6 py-4">
+    
+  <!-- Logo -->
+<a 
+  href="#inicio"
+  class="flex items-center gap-10 justify-center text-2xl font-bold tracking-wide"
+>
+  <img 
+    src="/Logo.jpeg" 
+    alt="Logo"
+    class="h-10 w-auto object-contain rounded-3xl"
+  />
+  <h1 class="text-blue-950 text-2xl font-bold tracking-wide">
+    ARTE Y RETÓRICA
+  </h1>
+</a>
+
+
+    <!-- Links -->
+    <ul class="flex gap-6">
+      <li *ngFor="let item of navItems" @fadeInUp>
+        <a 
+          [attr.href]="'#' + item.fragment"
+          class="text-blue-950 hover:text-purple-700 transition-colors font-medium cursor-pointer"
+        >
+          {{ item.name }}
+        </a>
+      </li>
+    </ul>
+
+  </nav>
+</header>

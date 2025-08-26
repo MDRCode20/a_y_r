@@ -1,0 +1,23 @@
+<div class="relative w-full max-w-full object-cover mx-auto overflow-hidden rounded-xl shadow-lg mt-18 ">
+  <img 
+    [src]="images[currentIndex]" 
+    class="w-full h-130 object-cover transition-transform duration-500"
+    alt="Imagen de carrusel"
+  >
+
+  <!-- Botón anterior -->
+  <button
+    (click)="prev()"
+    class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full"
+  >
+    ◀
+  </button>
+
+  <!-- Botón siguiente -->
+  <button
+    (click)="next()"
+    class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full"
+  >
+    ▶
+  </button>
+</div>

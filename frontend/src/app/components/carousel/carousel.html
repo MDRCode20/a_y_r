@@ -1,14 +1,20 @@
-<div class="relative w-full max-w-full object-cover mx-auto overflow-hidden rounded-xl shadow-lg mt-18 ">
-  <img 
-    [src]="images[currentIndex]" 
-    class="w-full h-130 object-cover transition-transform duration-500"
+<div class="relative w-full max-w-full mx-auto overflow-hidden rounded-xl shadow-lg mt-18">
+  <!-- Imagen con animación -->
+  <img
+    [src]="images[currentIndex]"
+    class="w-full h-100 object-cover transform transition-all duration-700 ease-in-out"
+    [ngClass]="{
+      'opacity-0 translate-x-10': animating && direction === 'next',
+      'opacity-0 -translate-x-10': animating && direction === 'prev',
+      'opacity-100 translate-x-0': !animating
+    }"
     alt="Imagen de carrusel"
-  >
+  />
 
   <!-- Botón anterior -->
   <button
     (click)="prev()"
-    class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full"
+    class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full hover:bg-opacity-80 transition"
   >
     ◀
   </button>
@@ -16,7 +22,7 @@
   <!-- Botón siguiente -->
   <button
     (click)="next()"
-    class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full"
+    class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full hover:bg-opacity-80 transition"
   >
     ▶
   </button>

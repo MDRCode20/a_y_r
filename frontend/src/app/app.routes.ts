@@ -4,8 +4,8 @@ import { AboutComponent } from './components/about/about';
 import { WorkshopsComponent } from './components/workshops/workshops';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
+   { path: '', component: HomeComponent, data: { animation: 'HomePage' } },
+  { path: 'about', component: AboutComponent, data: { animation: 'AboutPage' } },
   { path: 'workshops', component: WorkshopsComponent },
   { path: '**', redirectTo: '' },
 ];

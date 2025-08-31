@@ -7,9 +7,11 @@ import { TestimonialsComponent } from '../../components/testimonials/testimonial
 import { CtaComponent } from '../../components/cta/cta';
 import { CarouselComponent } from '../../components/carousel/carousel';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
+
   imports: [
     CarouselComponent,
     HeroComponent,
@@ -19,6 +21,7 @@ import { CarouselComponent } from '../../components/carousel/carousel';
     TestimonialsComponent,
     CtaComponent
   ],
+  
   templateUrl: './home.html'
 })
 export class HomeComponent {}

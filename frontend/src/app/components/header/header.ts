@@ -24,6 +24,8 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ],
 })
 export class HeaderComponent {
+
+   menuOpen = false;
   navItems = [
     { name: 'Inicio', fragment: 'inicio' },
     { name: 'Nosotros', fragment: 'nosotros' },
@@ -33,4 +35,9 @@ export class HeaderComponent {
     
     
   ];
+
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
 }

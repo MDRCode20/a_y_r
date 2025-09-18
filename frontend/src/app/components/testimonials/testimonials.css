@@ -1,0 +1,9 @@
+.testimonial-card {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.testimonial-card.animate-slide {
+  opacity: 0;
+  transform: translateX(-30px); /* se mueve un poco a la izquierda */
+}

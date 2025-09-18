@@ -1,15 +1,20 @@
-
 <section id="testimonios" class="py-20">
   <div class="container mx-auto px-6 text-center">
     <h3 class="text-3xl font-bold text-indigo-700 mb-12">Testimonios</h3>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-white shadow-md p-6 rounded-lg">
-        <p class="text-gray-700 italic">“Gracias al taller perdí el miedo a hablar en público y ahora disfruto expresarme.”</p>
-        <h4 class="mt-4 font-semibold text-indigo-600">— Laura G.</h4>
-      </div>
-      <div class="bg-white shadow-md p-6 rounded-lg">
-        <p class="text-gray-700 italic">“Un espacio lleno de energía positiva que me ayudó a crecer como persona.”</p>
-        <h4 class="mt-4 font-semibold text-indigo-600">— Carlos M.</h4>
+
+    <div class="grid md:grid-cols-2 gap-8 w-full max-w-4xl mx-auto overflow-hidden">
+      <div *ngFor="let t of visibleTestimonials"
+           class="testimonial-card bg-white shadow-md p-6 rounded-lg transform transition-all duration-500 ease-in-out"
+           [class.animate-slide]="isAnimating">
+        
+        <!-- Foto en círculo -->
+        <div class="flex justify-center mb-4">
+          <img [src]="t.foto" alt="{{t.autor}}" class="w-16 h-16 rounded-full border-2 border-indigo-500 shadow-md">
+        </div>
+
+        <!-- Texto -->
+        <p class="text-gray-700 italic">“{{ t.texto }}”</p>
+        <h4 class="mt-4 font-semibold text-indigo-600">{{ t.autor }}</h4>
       </div>
     </div>
   </div>

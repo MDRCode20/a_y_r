@@ -8,18 +8,26 @@
       class="flex items-center gap-4 text-2xl font-bold tracking-wide"
     >
       <img
-        src="/Logo.jpeg"
+        src="/Logo.png"
         alt="Logo"
         class="h-10 w-auto object-contain rounded-3xl"
       />
-      <h1 class="text-indigo-600 text-2xl font-bold tracking-wide">
+      <h1
+        [ngClass]="
+          isDarkSection
+            ? 'text-white'
+            : 'text-indigo-600'
+        "
+        class="text-2xl font-bold tracking-wide transition-colors"
+      >
         ARTE Y RETÓRICA
       </h1>
     </a>
 
     <!-- Botón Hamburguesa (solo en móviles) -->
     <button
-      class="md:hidden text-indigo-600 focus:outline-none"
+      class="md:hidden focus:outline-none"
+      [ngClass]="isDarkSection ? 'text-white' : 'text-indigo-600'"
       (click)="toggleMenu()"
     >
       <!-- Icono hamburguesa -->
@@ -56,14 +64,26 @@
       </svg>
     </button>
 
-    <!-- Links (desktop) -->
+    <!-- Links (desktop con línea animada) -->
     <ul class="hidden md:flex gap-6">
-      <li *ngFor="let item of navItems">
+      <li *ngFor="let item of navItems" class="relative group">
         <a
           [attr.href]="'#' + item.fragment"
-          class="text-indigo-600 hover:text-purple-700 transition-colors font-medium cursor-pointer"
+          [ngClass]="
+            isDarkSection
+              ? 'text-white hover:text-yellow-300'
+              : 'text-indigo-600 hover:text-purple-700'
+          "
+          class="transition-colors font-medium cursor-pointer relative"
         >
           {{ item.name }}
+          <!-- Línea animada -->
+          <span
+            [ngClass]="
+              isDarkSection ? 'bg-yellow-300' : 'bg-purple-500'
+            "
+            class="absolute left-0 -bottom-1 h-0.5 w-full transform scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100"
+          ></span>
         </a>
       </li>
     </ul>
@@ -77,11 +97,18 @@
       'max-h-screen opacity-100': menuOpen
     }"
   >
-    <ul class="flex flex-col items-center gap-6 py-6 bg-black/80 backdrop-blur-md border-t border-white/20">
+    <ul
+      class="flex flex-col items-center gap-6 py-6 bg-black/80 backdrop-blur-md border-t border-white/20"
+    >
       <li *ngFor="let item of navItems">
         <a
           [attr.href]="'#' + item.fragment"
-          class="text-indigo-300 hover:text-purple-400 text-lg font-medium transition-colors"
+          [ngClass]="
+            isDarkSection
+              ? 'text-white hover:text-yellow-300'
+              : 'text-indigo-300 hover:text-purple-400'
+          "
+          class="text-lg font-medium transition-colors"
           (click)="toggleMenu()"
         >
           {{ item.name }}

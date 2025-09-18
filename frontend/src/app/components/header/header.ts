@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
@@ -7,7 +7,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
   selector: 'app-header',
   imports: [CommonModule, RouterModule],
   templateUrl: './header.html',
-  styleUrl: './header.css',
+  styleUrls: ['./header.css'],
   animations: [
     trigger('fadeInLeft', [
       transition(':enter', [
@@ -24,20 +24,39 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ],
 })
 export class HeaderComponent {
+  menuOpen = false;
+  isDarkSection = false; // 🔑 controla el color dinámico
 
-   menuOpen = false;
   navItems = [
     { name: 'Inicio', fragment: 'inicio' },
     { name: 'Nosotros', fragment: 'nosotros' },
     { name: 'Talleres', fragment: 'trabajos' },
     { name: 'Testimonios', fragment: 'testimonios' },
     { name: 'Inscripción', fragment: 'hero' },
-    
-    
+    { name: 'Galeria', fragment: 'galeria' },
   ];
-
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
+  }
+
+  // 🔑 Detecta el scroll y cambia color en secciones oscuras
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const darkSections = ['nosotros', 'galeria']; // 👈 secciones que quieres oscuras
+    let inDark = false;
+
+    for (const section of darkSections) {
+      const el = document.getElementById(section);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+          inDark = true;
+          break;
+        }
+      }
+    }
+
+    this.isDarkSection = inDark;
   }
 }

@@ -7,7 +7,7 @@ html {
 body {
   background: #f4f4f4;
   font-family: Arial, sans-serif;
-  overflow: auto;
+  overflow-x: hidden;
 }
 
 .no-scrollbar::-webkit-scrollbar {

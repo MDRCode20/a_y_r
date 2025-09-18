@@ -1,9 +1,30 @@
-<section id="hero" class="h-screen flex flex-col bg-gradient-to-r from-indigo-600 to-purple-700 justify-center items-center text-center  text-white px-6">
-  <h2 class="text-5xl font-bold mb-4">Descubre el poder de tu voz</h2>
-  <p class="text-lg mb-6 max-w-2xl">
-    Talleres de verano en oratoria, autoestima y comunicación efectiva para crecer en comunidad.
-  </p>
-  <a href="#cta" class="bg-white text-indigo-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100">
-    ¡Quiero participar!
-  </a>
+<section id="hero" 
+  class="relative flex flex-col justify-center items-center text-center text-white px-6 min-h-screen overflow-hidden">
+
+  <!-- 🎥 Video de fondo -->
+  <video #heroVideo
+    muted
+    autoplay
+    loop
+    playsinline
+    preload="auto"
+    class="absolute inset-0 w-full h-full object-cover">
+    <source src="assets/video/hero.mp4" type="video/mp4" />
+    Tu navegador no soporta videos HTML5.
+  </video>
+
+  <!-- Capa oscura -->
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <!-- Contenido -->
+  <div class="relative z-10 px-4">
+    <h2 class="text-5xl font-bold mb-4">Descubre el poder de tu voz</h2>
+    <p class="text-lg mb-6 max-w-2xl mx-auto">
+      Talleres de verano en oratoria, autoestima y comunicación efectiva para crecer en comunidad.
+    </p>
+    <a href="#cta" 
+       class="bg-white text-indigo-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+      ¡Quiero participar!
+    </a>
+  </div>
 </section>

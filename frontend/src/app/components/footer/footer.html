@@ -1,7 +1,102 @@
-<footer id="footer" class="bg-gray-900 text-white py-10">
-  <div class="container mx-auto px-6 text-center">
-    <h4 class="text-lg font-semibold">Arte y Retórica</h4>
-    <p class="text-gray-400 mt-2">Talleres de verano · Oratoria · Autoestima · Recreación</p>
-    <p class="text-gray-500 mt-4">© 2025 Arte y Retórica. Todos los derechos reservados.</p>
+<footer class="bg-gradient-to-r from-indigo-700 via-purple-800 to-indigo-700 text-white pt-16 pb-10 px-6 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto grid gap-12 sm:grid-cols-2 lg:grid-cols-3 relative z-10">
+
+    <!-- Info -->
+    <div>
+      <h2 class="text-3xl font-bold mb-4 tracking-wide">Arte y Retórica</h2>
+      <p class="text-sm text-white/80 leading-relaxed">
+        Talleres de verano de oratoria, autoestima y recreación.
+        Creemos en el poder de la palabra para transformar vidas.
+      </p>
+    </div>
+
+    <!-- Navegación -->
+    <div>
+      <h3 class="text-xl font-semibold mb-4">Navegación</h3>
+      <ul class="space-y-2 text-white/80 text-sm">
+        <li><a href="#inicio" class="hover:text-pink-400 transition-colors">Inicio</a></li>
+        <li><a href="#nosotros" class="hover:text-pink-400 transition-colors">Nosotros</a></li>
+        <li><a href="#talleres" class="hover:text-pink-400 transition-colors">Talleres</a></li>
+        <li><a href="#testimonios" class="hover:text-pink-400 transition-colors">Testimonios</a></li>
+        <li><a href="#contacto" class="hover:text-pink-400 transition-colors">Contacto</a></li>
+      </ul>
+    </div>
+
+  <!-- Redes Sociales -->
+<div class="text-center ">
+  <h2 class="text-2xl font-bold text-white mb-6">Síguenos</h2>
+
+  <div class="flex justify-center gap-6">
+    <!-- Facebook -->
+    <a href="https://facebook.com" target="_blank"
+       class="w-12 h-12 flex items-center justify-center rounded-full 
+              text-white hover:bg-blue-600 shadow-md hover:shadow-lg 
+              transition-all duration-300">
+      <fa-icon [icon]="faFacebook" class="text-xl"></fa-icon>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://instagram.com" target="_blank"
+       class="w-12 h-12 flex items-center justify-center rounded-full 
+              text-white hover:bg-pink-500 shadow-md hover:shadow-lg 
+              transition-all duration-300">
+      <fa-icon [icon]="faInstagram" class="text-xl"></fa-icon>
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/51999999999" target="_blank"
+       class="w-12 h-12 flex items-center justify-center rounded-full 
+              text-white hover:bg-green-500 shadow-md hover:shadow-lg 
+              transition-all duration-300">
+      <fa-icon [icon]="faWhatsapp" class="text-xl"></fa-icon>
+    </a>
   </div>
+</div>
+
+
+
+
+  </div>
+
+  <!-- Línea inferior -->
+  <div class="border-t border-white/20 mt-14 pt-5 text-sm text-center relative z-10">
+    <p class="mb-2">
+      <button (click)="abrirModal('politica')" class="hover:text-blue-300 underline">
+        Política de Privacidad
+      </button>
+      |
+      <button (click)="abrirModal('reclamo')" class="hover:text-blue-300 underline ml-1">
+        Libro de Reclamaciones
+      </button>
+    </p>
+    <p>
+      &copy; {{ anioActual }} <span class="font-semibold">Arte y Retórica</span>. Todos los derechos reservados.
+    </p>
+    <p class="text-white/50 mt-2">
+      Diseño y desarrollo con ❤️ desde Perú
+    </p>
+  </div>
+
+  <!-- Modal -->
+  <div *ngIf="modalActivo" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-50">
+    <div class="bg-white text-black rounded-lg shadow-xl max-w-lg w-full mx-4 p-6 relative">
+      <button (click)="cerrarModal()" class="absolute top-3 right-3 text-gray-700 text-2xl font-bold">
+        &times;
+      </button>
+
+      <div *ngIf="modalActivo === 'politica'">
+        <h2 class="text-2xl font-bold mb-4">Política de Privacidad</h2>
+        <p>Aquí va el contenido de la política de privacidad...</p>
+      </div>
+
+      <div *ngIf="modalActivo === 'reclamo'">
+        <h2 class="text-2xl font-bold mb-4">Libro de Reclamaciones</h2>
+        <p>Aquí irá el formulario de reclamos...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fondos decorativos -->
+  <div class="absolute top-10 left-10 w-64 h-64 bg-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute bottom-10 right-10 w-64 h-64 bg-indigo-400/20 rounded-full blur-3xl animate-pulse"></div>
 </footer>

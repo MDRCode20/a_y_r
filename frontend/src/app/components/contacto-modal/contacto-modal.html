@@ -1,0 +1,11 @@
+<div class="modal-backdrop">
+  <div class="modal">
+    <h2>📌 Detalles del Contacto</h2>
+    <p><strong>Nombre:</strong> {{ contacto?.nombre }}</p>
+    <p><strong>Email:</strong> {{ contacto?.email }}</p>
+    <p><strong>Teléfono:</strong> {{ contacto?.telefono }}</p>
+    <p><strong>Mensaje:</strong> {{ contacto?.mensaje }}</p>
+
+    <button (click)="cerrarModal()">Cerrar</button>
+  </div>
+</div>

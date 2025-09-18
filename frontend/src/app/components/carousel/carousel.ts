@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class CarouselComponent {
   images: string[] = [
-    'assets/images/img1.jpg',
-    'assets/images/img2.jpg',
-    'assets/images/img3.jpg'
+    'assets/img/img1.jpg',
+    'assets/img/img2.jpg',
+    'assets/img/img3.jpg'
   ];
 
   currentIndex = 0;

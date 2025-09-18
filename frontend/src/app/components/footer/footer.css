@@ -1,0 +1,23 @@
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+
+
+footer {
+  position: relative;
+  overflow: hidden;
+}
+
+footer .animate-pulse {
+  animation: pulseGlow 6s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.2);
+  }
+}
